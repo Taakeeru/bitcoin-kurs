@@ -1,3 +1,5 @@
+const API_KEY =  'M2LK7TBTRG91HN1W';
+
 let months = [
     '2021-02-28',
     '2021-03-31',
@@ -36,12 +38,11 @@ let months = [
 
 let monthlyCourseArray = [];
 
-const API_KEY =  'M2LK7TBTRG91HN1W';
 
-
-function init() {
-    loadExchangeRate();
-    loadMonthlyCourse();
+async function init() {
+    await loadExchangeRate();
+    await loadMonthlyCourse();
+    renderChart();
 }
 
 
@@ -64,6 +65,5 @@ async function loadMonthlyCourse() {
     for (let i = 0; i < months.length; i++) {
         const courseEachMonth = Math.round(monthlyCourse[months[i]]['1a. open (CHF)']);
         monthlyCourseArray.push(courseEachMonth);
-        
     }
 }
