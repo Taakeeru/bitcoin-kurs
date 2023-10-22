@@ -50,7 +50,7 @@ async function loadExchangeRate() {
     let url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=CHF&apikey=${API_KEY}`;
     let response = await fetch(url);
     let responseAsJson = await response.json();
-    let currentExchangeRate = Math.round(responseAsJson['Realtime Currency Exchange Rate']['5. Exchange Rate'])
+    let currentExchangeRate = Math.round(responseAsJson['Realtime Currency Exchange Rate']['5. Exchange Rate']);
 
     document.getElementById('exchange-rate').innerHTML = `<b>${currentExchangeRate} CHF</b>`;
 }
